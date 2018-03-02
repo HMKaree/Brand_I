@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.android.brand_i.RegisterPage"
+    android:background="@drawable/purple_gradient">
+
+
+    <EditText
+        android:id="@+id/EmailEditor"
+        android:layout_width="263dp"
+        android:layout_height="41dp"
+        android:layout_above="@+id/PasswordEditor"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="32dp"
+        android:layout_marginTop="80dp"
+        android:background="#FF800080"
+        android:drawableStart="@drawable/ic_email"
+        android:ems="10"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:text="@string/untitled"
+        app:layout_constraintBottom_toTopOf="@+id/PasswordEditor"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.684" />
+
+    <EditText
+        android:id="@+id/PasswordEditor"
+        android:layout_width="273dp"
+        android:layout_height="43dp"
+        android:layout_alignBottom="@+id/RegisterBtn"
+        android:layout_alignStart="@+id/EmailEditor"
+        android:layout_marginTop="32dp"
+        android:background="#FF800080"
+        android:drawableStart="@drawable/ic_action_name"
+        android:ems="10"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:text="@string/untitled"
+        app:layout_constraintBottom_toTopOf="@+id/RegisterBtn"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/RegisterBtn"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="67dp"
+        android:layout_marginTop="140dp"
+        android:background="@color/colorAccent"
+        android:text="@string/register_label"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/PasswordEditor" />
+
+</android.support.constraint.ConstraintLayout>
+
