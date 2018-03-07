@@ -29,6 +29,7 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -50,6 +51,7 @@ public class WelcomePage extends AppCompatActivity implements View.OnClickListen
     TextView RegisterLink;
     Button LoginBtn;
     FirebaseAuth mAuth;
+    ProgressBar progressBar2;
 
 
     @Override
@@ -59,10 +61,14 @@ public class WelcomePage extends AppCompatActivity implements View.OnClickListen
 
 
 
-        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        mAuth = FirebaseAuth.getInstance();
 
-        TextView RegisterLink = (TextView) findViewById(R.id.RegisterLink);
-        Button LoginBtn = (Button) findViewById(R.id.LoginBtn);
+        EmailEditor = (EditText) findViewById(R.id.EmailEditor);
+        PasswordEditor = (EditText) findViewById(R.id.PasswordEditor);
+
+        RegisterLink = (TextView) findViewById(R.id.RegisterLink);
+        LoginBtn = (Button) findViewById(R.id.LoginBtn);
+        progressBar2 = (ProgressBar) findViewById(R.id.progressBar2);
 
         RegisterLink.setOnClickListener(this);
         LoginBtn.setOnClickListener(this);
@@ -99,18 +105,25 @@ public class WelcomePage extends AppCompatActivity implements View.OnClickListen
             return;
         }
 
+        progressBar2.setVisibility(View.VISIBLE);
 
-        mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+
+        mAuth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
+                    progressBar2.setVisibility(View.GONE);
                     Intent intent = new Intent(WelcomePage.this, BottomNavigationPage.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);
 
+                    Toast.makeText(getApplicationContext(), "User registered successfully",
+                            Toast.LENGTH_SHORT).show();
                 }
                 else{
-                    Toast.makeText(getApplicationContext(), task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+
+                    Toast.makeText(getApplicationContext(), "Some error occurred", Toast.LENGTH_SHORT).show();
                 }
 
             }
@@ -126,7 +139,6 @@ public class WelcomePage extends AppCompatActivity implements View.OnClickListen
 
             case R.id.LoginBtn:
                 UserLogin();
-                startActivity(new Intent(this, BottomNavigationPage.class));
                 break;
 
         }

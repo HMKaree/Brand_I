@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#aaaa</color>
+    <color name="colorPrimary">#ffffff</color>
     <color name="colorPrimaryDark">#ff000000</color>
     <color name="colorAccent">#ffaa66cc</color>
+    <color name="gray">#111010</color>
+    <color name="button_pressed">#ffffff</color>
+    <color name="button_normal">#ffaa66cc</color>
+
 </resources>

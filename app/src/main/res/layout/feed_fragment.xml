@@ -2,14 +2,17 @@
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 android:layout_width="match_parent" android:layout_height="match_parent"
-    android:background="@drawable/purple_gradient">
+    android:background="@color/colorPrimary"
+    android:padding="6dip">
 
-<TextView
-    android:text="@string/title_feed"
-    android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:textColor="@color/colorAccent"/>
+
+
+    <ListView
+        android:id="@+id/FeedListView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+    </ListView>
 
 
 </RelativeLayout>
